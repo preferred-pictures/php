@@ -2,14 +2,20 @@
 
 declare(strict_types=1);
 
+namespace PreferredPictures;
+
 /**
  * Implement a client for Preferred.pictures that makes calling
  * the API methods easy and efficient.
  *
+ * @property string $identity The identity used for API requests.
+ * @property string $endpoint The endpoint for API requests made by this client.
+ * @property int $max_choices The maximum number of choices allowed in each API call.
+ *
  */
 final class Client
 {
-    private $identity;
+    public $identity;
     private $secret_key;
     public $endpoint;
     public $max_choices;

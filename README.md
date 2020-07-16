@@ -23,7 +23,7 @@ secret key, which is available in the Preferred.pictures interface.
 ```php
 
 
-$client = new Preferred\-Pictures\Client("testidentity", "secret123456");
+$client = new PreferredPictures\Client("testidentity", "secret123456");
 
 $url = $client->createChooseUrl(
     ["red", "green", "blue"],

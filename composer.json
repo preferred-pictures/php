@@ -3,6 +3,7 @@
   "description": "Preferred.pictures PHP client library",
   "type": "library",
   "license": "MIT",
+  "homepage": "https://preferred.pictures",
   "authors": [
     {
       "name": "Preferred Pictures",
@@ -15,8 +16,15 @@
     "phpunit/phpunit": "^9"
   },
   "autoload": {
-    "classmap": [
-      "src/"
-    ]
+    "psr-4": {
+      "PreferredPictures\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PreferredPictures\\": [
+        "tests/"
+      ]
+    }
   }
 }
