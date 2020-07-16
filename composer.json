@@ -1,0 +1,22 @@
+{
+  "name": "Preferred-Pictures/Client",
+  "description": "Preferred.pictures PHP client library",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Preferred Pictures",
+      "email": "contact@preferred.pictures"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
