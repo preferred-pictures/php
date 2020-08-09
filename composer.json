@@ -1,6 +1,6 @@
 {
   "name": "preferred-pictures/client",
-  "description": "Preferred.pictures PHP client library",
+  "description": "PreferredPictures PHP client library",
   "type": "library",
   "license": "MIT",
   "homepage": "https://preferred.pictures",
@@ -19,6 +19,9 @@
     "psr-4": {
       "PreferredPictures\\": "src/"
     }
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit tests"
   },
   "autoload-dev": {
     "psr-4": {

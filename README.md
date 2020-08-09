@@ -1,7 +1,11 @@
-# Preferred.pictures PHP Client Library
+# PreferredPictures PHP Client Library
 
-The [Preferred.pictures](https://preferred.pictures) PHP library provides a convenient way to call the
-[Preferred.pictures](https://preferred.pictures) API for applications written in PHP
+The [PreferredPictures](https://preferred.pictures) PHP library provides a convenient way to call the
+[PreferredPictures](https://preferred.pictures) API for applications written in PHP.
+
+[View the full documentation about the PreferredPicture's API](https://docs.preferred.pictures/api-sdks/api)
+
+[Learn more about what PreferredPictures can do.](https://docs.preferred.pictures/)
 
 ## Installation
 
@@ -18,7 +22,7 @@ require_once('vendor/autoload.php')
 ## Usage
 
 The package needs to be configured with your account's identity and
-secret key, which is available in the Preferred.pictures interface.
+secret key, which is available in the PreferredPictures interface.
 
 ```php
 
@@ -36,7 +40,7 @@ $url = $client->createChooseUrl(
 
 # The url returned will appear to be something like:
 #
-# https://api.preferred.pictures/choose-url?choices=red%2Cgreen%2Cblue&tournament=testing&expiration=[EXPIRATION]&uid=[UNIQUEID]&ttl=600&prefix=https%3A%2F%2Fexample.com%2Fjacket-&suffix=.jpg&identity=test-identity&signature=[SIGNATURE]
+# https://api.preferred-pictures.com/choose-url?choices=red%2Cgreen%2Cblue&tournament=testing&expiration=[EXPIRATION]&uid=[UNIQUEID]&ttl=600&prefix=https%3A%2F%2Fexample.com%2Fjacket-&suffix=.jpg&identity=test-identity&signature=[SIGNATURE]
 #
 # which should be placed where it is needed in your application or templates.
 ```
