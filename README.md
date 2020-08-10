@@ -3,7 +3,9 @@
 The [PreferredPictures](https://preferred.pictures) PHP library provides a convenient way to call the
 [PreferredPictures](https://preferred.pictures) API for applications written in PHP.
 
-[View the full documentation about the PreferredPicture's API](https://docs.preferred.pictures/api-sdks/api)
+[View the PHP documentation of this module](https://preferred-pictures.github.io/php/api/classes/PreferredPictures-Client.html)
+
+[View the documentation of the PreferredPicture's API](https://docs.preferred.pictures/api-sdks/api)
 
 [Learn more about what PreferredPictures can do.](https://docs.preferred.pictures/)
 
