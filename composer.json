@@ -21,7 +21,8 @@
     }
   },
   "scripts": {
-    "test": "./vendor/bin/phpunit tests"
+    "test": "./vendor/bin/phpunit tests",
+    "docs": "phpdoc -d ./src -t ./docs/api --template clean"
   },
   "autoload-dev": {
     "psr-4": {

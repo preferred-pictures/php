@@ -29,6 +29,15 @@ secret key, which is available in the PreferredPictures interface.
 
 $client = new PreferredPictures\Client("testidentity", "secret123456");
 
+# Create a basic URL to pick between three different images.
+$url = $client->createChooseUrl(
+    ["https://www.example.com/image-red.jpg",
+     "https://www.example.com/image-green.jpg",
+     "https://www.example.com/image-blue.jpg"],
+    "test-tournament",
+);
+
+# Use a prefix and suffix to make specifying the options less verbose
 $url = $client->createChooseUrl(
     ["red", "green", "blue"],
     "test-tournament",

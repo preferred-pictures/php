@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/preferredpictures.html"><abbr title="\PreferredPictures">normal</abbr></a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2045837407"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-2045837407" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1670469857"></a>
+                                <a href="../namespaces/preferredpictures.html" style="margin-left: 30px; padding-left: 0">PreferredPictures</a>
+            </div>
+            <div id="namespace-1670469857" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/PreferredPictures-Client.html"><abbr title="\PreferredPictures\Client">Client</abbr></a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/preferredpictures.html"><abbr title="\PreferredPictures">normal</abbr></a> <i class="icon-level-up"></i>
+                                            </nav>
+                    
+                    <h1><small>\PreferredPictures</small>Client</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/PreferredPictures-Client.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/PreferredPictures-Client.html#method_createChooseUrl" class="">createChooseUrl()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/PreferredPictures-Client.html#property_identity" class="">$identity</a><br />
+                                                                    <a href="../classes/PreferredPictures-Client.html#property_secret_key" class="">$secret_key</a><br />
+                                                                    <a href="../classes/PreferredPictures-Client.html#property_endpoint" class="">$endpoint</a><br />
+                                                                    <a href="../classes/PreferredPictures-Client.html#property_max_choices" class="">$max_choices</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                                                <span class="label label-info">final</span>
+                    
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/src-client.html"><div class="path-wrapper">src/Client.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\PreferredPictures\Client</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://docs.preferred.pictures/api-sdks/api"><span class="namespace-wrapper">Full API Documentation
+
+A client for the PreferredPictures&#039; API</span></a></dd>
+                                                                            
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_identity" name="property_identity" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$identity</h3>
+                <pre class="signature">$identity : string</pre>
+                <p><em>The identity that is used for all URLs created by this client</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string"><abbr title="string">normal</abbr></a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_secret_key" name="property_secret_key" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$secret_key</h3>
+                <pre class="signature">$secret_key : string</pre>
+                <p><em>The secret key that is used to create the crypographic signature
+for all requests created by this client.</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string"><abbr title="string">normal</abbr></a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_endpoint" name="property_endpoint" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$endpoint</h3>
+                <pre class="signature">$endpoint : string</pre>
+                <p><em>The API endpoint for the PreferredPictures API defaults to
+https://api.preferred-pictures.com</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../string"><abbr title="string">normal</abbr></a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_max_choices" name="property_max_choices" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$max_choices</h3>
+                <pre class="signature">$max_choices : int</pre>
+                <p><em>The maximum number of choices to allow in a request.</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../int"><abbr title="int">normal</abbr></a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$identity</span>, string  <span class="argument">$secret_key</span>, int  <span class="argument">$max_choices = 35</span>, string  <span class="argument">$endpoint = &#039;https://api.preferred-pictures.com/&#039;</span>) : \PreferredPictures\Client</pre>
+                <p><em>Create a new client object</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$identity </td>
+                                <td><p>The identity that should be used for the API calls.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$secret_key </td>
+                                <td><p>The secret key of the identity that will be used to create request signatures</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>int</td>
+                                <td>$max_choices </td>
+                                <td><p>The maximum number of choices to allow in an API call</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$endpoint </td>
+                                <td><p>The endpoint of the API to use, default is <a href="https://api.preferred-pictures.com/">https://api.preferred-pictures.com/</a></p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \PreferredPictures\Client
+                                            &mdash; <p>A new PreferredPictures client object.</p>
+<p>Example:</p>
+<p><code class="prettyprint"><pre class="prettyprint">
+&lt;?php
+use PreferredPictures\Client as Client;</p>
+<p>$client = new Client(&quot;testidentity&quot;, &quot;secret123456&quot;);
+?&gt;
+</pre></code></p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/PreferredPictures-Client.html"><div class="path-wrapper">\PreferredPictures\Client</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createChooseUrl" name="method_createChooseUrl" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createChooseUrl()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createChooseUrl(array  <span class="argument">$choices</span>, string  <span class="argument">$tournament</span>, int  <span class="argument">$ttl = 600</span>, int  <span class="argument">$expiration_ttl = 3600</span>, string  <span class="argument">$choices_prefix = &quot;&quot;</span>, string  <span class="argument">$choices_suffix = &quot;&quot;</span>, array  <span class="argument">$destinations = []</span>, string  <span class="argument">$destinations_prefix = &quot;&quot;</span>, string  <span class="argument">$destinations_suffix = &quot;&quot;</span>, bool  <span class="argument">$json = false</span>, bool  <span class="argument">$go = false</span>, string  <span class="argument">$uid = &quot;&quot;</span>) : string</pre>
+                <p><em>Build a URL for a call to /choose of the PreferredPictures API</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$choices </td>
+                                <td><p>A list of choices of which a selection should be made</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tournament </td>
+                                <td><p>The tournament of which this API call is a part.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>int</td>
+                                <td>$ttl </td>
+                                <td><p>The amount of time in seconds after a choice is made that an action can be recorded.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>int</td>
+                                <td>$expiration_ttl </td>
+                                <td><p>The amount of time in seconds that the request's signature is valid.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$choices_prefix </td>
+                                <td><p>An optional prefix to prepend to all of the choices</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$choices_suffix </td>
+                                <td><p>An optional suffix to append to all of the choices</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$destinations </td>
+                                <td><p>A list of destination URLs which are paired with choices for redirection</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destinations_prefix </td>
+                                <td><p>An optional prefix to prepend to all of the destination URLs</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destinations_suffix </td>
+                                <td><p>An options suffix to append to all of the destination URLs</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>bool</td>
+                                <td>$json </td>
+                                <td><p>Indicate that the result should be returned as JSON, rather than a HTTP redirect</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>bool</td>
+                                <td>$go </td>
+                                <td><p>Indicate that the user should be redirected to the destination URL
+from a previously chosen option associated with the same tournament
+and unique id.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$uid </td>
+                                <td><p>An optional unique identifier that is used to correlate choices and actions.
+If it is not specified a random string will be generated.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A URL that calls the PreferredPictures /choose API.</p>
+<p>Example:</p>
+<p><code class="prettyprint"><pre class="prettyprint">
+&lt;?php
+use PreferredPictures\Client as Client;</p>
+<p>$client = new Client(&quot;testidentity&quot;, &quot;secret123456&quot;);</p>
+<p>// Explicitly listing all choices
+$url = client-&gt;createChooseUrl(
+[&quot;<a href="https://example.com/image-red.jpg">https://example.com/image-red.jpg</a>&quot;,
+&quot;<a href="https://example.com/image-green.jpg">https://example.com/image-green.jpg</a>&quot;,
+&quot;<a href="https://example.com/image-blue.jpg">https://example.com/image-blue.jpg</a>&quot;],
+&quot;test-tournament&quot;);</p>
+<p>// Using a prefix and suffix to make choices easier
+$url = client-&gt;createChooseUrl(
+[&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;],
+&quot;test-tournament&quot;,
+300,
+6000,
+&quot;<a href="https://example.com/image">https://example.com/image</a>-&quot;,
+&quot;.jpg&quot;);
+?&gt;
+</pre></code></p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/PreferredPictures-Client.html"><div class="path-wrapper">\PreferredPictures\Client</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Client.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/src/Client.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/preferredpictures.html"><abbr title="\PreferredPictures">normal</abbr></a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on August 10th, 2020 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

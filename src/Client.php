@@ -1,24 +1,40 @@
 <?php
 
+/**
+ * @copyright 2020 PreferredPictures
+ * @author PreferredPictures <contact@preferred.pictures>
+ * @license MIT
+ */
+
 declare(strict_types=1);
 
 namespace PreferredPictures;
 
 /**
- * Implement a client for PreferredPictures that makes calling
- * the API methods easy and efficient.
+ * @link https://docs.preferred.pictures/api-sdks/api Full API Documentation
  *
- * @property string $identity The identity used for API requests.
- * @property string $endpoint The endpoint for API requests made by this client.
- * @property int $max_choices The maximum number of choices allowed in each API call.
- *
+ * A client for the PreferredPictures' API
  */
 final class Client
 {
-    public $identity;
-    private $secret_key;
-    public $endpoint;
-    public $max_choices;
+    /** The identity that is used for all URLs created by this client */
+    private string $identity;
+    /**
+     * The secret key that is used to create the crypographic signature
+     * for all requests created by this client.
+     */
+    private string $secret_key;
+
+    /**
+     * The API endpoint for the PreferredPictures API defaults to
+     * https://api.preferred-pictures.com
+     */
+    private string $endpoint;
+
+    /**
+     * The maximum number of choices to allow in a request.
+     */
+    private int $max_choices;
 
     /**
      * Create a new client object
@@ -29,6 +45,16 @@ final class Client
      * @param string $endpoint The endpoint of the API to use, default is https://api.preferred-pictures.com/
      *
      * @return Client A new PreferredPictures client object.
+     *
+     * Example:
+     *
+     * <code><pre>
+     * <?php
+     * use PreferredPictures\Client as Client;
+     *
+     * $client = new Client("testidentity", "secret123456");
+     * ?>
+     * </pre></code>
      */
     public function __construct(
         string $identity,
@@ -44,6 +70,8 @@ final class Client
     }
 
     /**
+     * @ignore
+     *
      * Generate a random string of a specified length.
      *
      * @param int $length The length of the random string to produce
@@ -72,11 +100,43 @@ final class Client
      * @param int $expiration_ttl The amount of time in seconds that the request's signature is valid.
      * @param string $choices_prefix An optional prefix to prepend to all of the choices
      * @param string $choices_suffix An optional suffix to append to all of the choices
-     * @param array $destinations A list of destination URLs which are paired with choices for redriection
+     * @param array $destinations A list of destination URLs which are paired with choices for redirection
      * @param string $destinations_prefix An optional prefix to prepend to all of the destination URLs
      * @param string $destinations_suffix An options suffix to append to all of the destination URLs
+     * @param bool $go Indicate that the user should be redirected to the destination URL
+     * from a previously chosen option associated with the same tournament
+     * and unique id.
+     * @param bool $json Indicate that the result should be returned as JSON, rather than a HTTP redirect
+     * @param string $uid An optional unique identifier that is used to correlate choices and actions.
+     * If it is not specified a random string will be generated.
      *
      * @return string A URL that calls the PreferredPictures /choose API.
+     *
+     * Example:
+     *
+     * <code><pre>
+     * <?php
+     * use PreferredPictures\Client as Client;
+     *
+     * $client = new Client("testidentity", "secret123456");
+     *
+     * // Explicitly listing all choices
+     * $url = client->createChooseUrl(
+     *     ["https://example.com/image-red.jpg",
+     *      "https://example.com/image-green.jpg",
+     *      "https://example.com/image-blue.jpg"],
+     *     "test-tournament");
+     *
+     * // Using a prefix and suffix to make choices easier
+     * $url = client->createChooseUrl(
+     *     ["red", "green", "blue"],
+     *     "test-tournament",
+     *     300,
+     *     6000,
+     *     "https://example.com/image-",
+     *     ".jpg");
+     * ?>
+     * </pre></code>
      */
     public function createChooseUrl(
         array $choices,
@@ -88,8 +148,9 @@ final class Client
         array $destinations = [],
         string $destinations_prefix = "",
         string $destinations_suffix = "",
+        bool $json = false,
         bool $go = false,
-        bool $json = false
+        string $uid = ""
     ) {
         if (count($choices) > $this->max_choices) {
             throw new Exception("Too many choices presented to build URL");
@@ -100,9 +161,14 @@ final class Client
             "choices" => $choices,
             "expiration" => date_timestamp_get($date) + $expiration_ttl,
             "tournament" => $tournament,
-            "uid" => $this->getRandomString(30),
             "ttl" => $ttl,
         ];
+
+        if ($uid != "") {
+            $request_params['uid'] = $uid;
+        } else {
+            $request_params['uid'] = $this->getRandomString(30);
+        }
 
         if ($choices_prefix != "") {
             $request_params['choices_prefix'] = $choices_prefix;
